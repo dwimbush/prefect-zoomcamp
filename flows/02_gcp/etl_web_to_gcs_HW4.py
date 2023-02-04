@@ -7,7 +7,7 @@ from prefect.filesystems import GitHub
 github_block = GitHub.load("github-etl-web-to-gcs")
 
 flow.storage = GitHub(
-    repo="prefect-zoomcamp",                    # name of repo
+    repo="https://github.com/dwimbush/prefect-zoomcamp",                    # name of repo
     path="flows/02_gcp/etl_web_to_gcs_HW4.py"   # location of flow file in repo
     # access_token_secret="GITHUB_ACCESS_TOKEN" # name of personal access token secret
 )
@@ -58,14 +58,6 @@ def etl_web_to_gcs() -> None:
     path = write_local(df_clean, color, dataset_file)
     
     write_gcs(path)
-
-github_block = GitHub.load("github-etl-web-to-gcs")
-
-flow.storage = GitHub(
-    repo="dwimbush/prefect-zoomcamp",                    # name of repo
-    path="flows/02_gcp/etl_web_to_gcs_HW4.py"   # location of flow file in repo
-    # access_token_secret="GITHUB_ACCESS_TOKEN" # name of personal access token secret
-)
 
 if __name__ == '__main__':
     etl_web_to_gcs()
