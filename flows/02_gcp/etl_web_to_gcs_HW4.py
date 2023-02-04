@@ -3,12 +3,11 @@ import pandas as pd
 from prefect import flow, task
 from prefect_gcp.cloud_storage import GcsBucket
 from prefect.filesystems import GitHub
-from prefect.storage import GitHub
 
 github_block = GitHub.load("github-etl-web-to-gcs")
 
 flow.storage = GitHub(
-    repo="dwimbush/prefect-zoomcamp/",           # name of repo
+    repo="prefect-zoomcamp",           # name of repo
     path="flows/02_gcp/etl_web_to_gcs_HW4.py"  # location of flow file in repo
     # access_token_secret="GITHUB_ACCESS_TOKEN"   # name of personal access token secret
 )
