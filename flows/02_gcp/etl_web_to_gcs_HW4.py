@@ -6,10 +6,10 @@ from prefect.filesystems import GitHub
 
 github_block = GitHub.load("github-etl-web-to-gcs")
 
-# flow.storage = GitHub(
-#     repo="https://github.com/dwimbush/prefect-zoomcamp", 
-#     path="flows/02_gcp/etl_web_to_gcs_HW4.py"
-# )
+flow.storage = GitHub(
+    repo="https://github.com/dwimbush/prefect-zoomcamp", 
+    path="flows/02_gcp/etl_web_to_gcs_HW4.py"
+)
 
 @task(retries=3)
 def fetch(dataset_url: str) -> pd.DataFrame:
