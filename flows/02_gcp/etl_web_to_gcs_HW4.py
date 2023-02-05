@@ -7,7 +7,7 @@ from prefect.filesystems import GitHub
 github_block = GitHub.load("github-etl-web-to-gcs")
 
 flow.storage = GitHub(
-    repo="dwimbush/prefect-zoomcamp", 
+    repo="https://github.com/dwimbush/prefect-zoomcamp.git", 
     path="flows/02_gcp/etl_web_to_gcs_HW4.py"
 )
 
